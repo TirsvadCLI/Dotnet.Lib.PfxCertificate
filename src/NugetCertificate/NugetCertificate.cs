@@ -1,7 +1,7 @@
-﻿using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
+﻿namespace TirsvadCLI.NugetCertificate;
 
-namespace TirsvadCLI.NugetCertificate;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 
 public class NugetCertificate
 {
@@ -35,9 +35,20 @@ public class NugetCertificate
         }
 
         // Export the certificate with the private key
-        var certBytes = certificate.Export(X509ContentType.Pfx, NugetCert.CertificatePassword);
+        byte[]? certBytes = certificate.Export(X509ContentType.Pfx, NugetCert.CertificatePassword);
         var certFilePath = Path.Combine(NugetCert.CertificatePath, NugetCert.CertificateFilename);
         await File.WriteAllBytesAsync(certFilePath, certBytes);
+
+        //// Obsolute: Install the certificate in the store if requested
+        //if (NugetCert.InstallInStore)
+        //{
+        //    using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+        //    store.Open(OpenFlags.ReadWrite);
+
+        //    // Corrected the issue by directly creating an X509Certificate2 instance
+        //    var x509Certificate = new X509Certificate2(certBytes, NugetCert.CertificatePassword, X509KeyStorageFlags.PersistKeySet);
+        //    store.Add(x509Certificate);
+        //}
 
         // Install the certificate in the store if requested
         if (NugetCert.InstallInStore)
@@ -45,8 +56,13 @@ public class NugetCertificate
             using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
             store.Open(OpenFlags.ReadWrite);
 
-            // Corrected the issue by directly creating an X509Certificate2 instance
-            var x509Certificate = new X509Certificate2(certBytes, NugetCert.CertificatePassword, X509KeyStorageFlags.PersistKeySet);
+            // Use the X509Certificate2 constructor to load the certificate from the byte array
+            var x509Certificate = new X509Certificate2(
+                certBytes,
+                NugetCert.CertificatePassword,
+                X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.UserKeySet);
+
+            // Add the certificate to the store
             store.Add(x509Certificate);
         }
     }

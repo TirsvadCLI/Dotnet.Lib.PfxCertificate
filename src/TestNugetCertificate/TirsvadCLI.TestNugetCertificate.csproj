@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TirsvadCLI.NugetCertificate\TirsvadCLI.NugetCertificate.csproj" />
+    <ProjectReference Include="..\NugetCertificate\TirsvadCLI.NugetCertificate.csproj" />
   </ItemGroup>
 
   <ItemGroup>
