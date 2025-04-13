@@ -5,13 +5,24 @@ using System.Security.Cryptography.X509Certificates;
 
 public class NugetCertificate
 {
+    /// <summary>
+    /// Certificate information.
+    /// </summary>
     Model.CertificateInfo NugetCert { get; }
 
+    /// <summary>
+    /// Constructor for the NugetCertificate class.
+    /// </summary>
+    /// <param name="nugetCert"></param>
     public NugetCertificate(Model.CertificateInfo nugetCert)
     {
         NugetCert = nugetCert;
     }
 
+    /// <summary>
+    /// Creates a self-signed certificate and saves it to the specified path.
+    /// </summary>
+    /// <returns></returns>
     public async Task CreateCertificateAsync()
     {
         using var rsa = RSA.Create(2048);
@@ -39,17 +50,6 @@ public class NugetCertificate
         var certFilePath = Path.Combine(NugetCert.CertificatePath, NugetCert.CertificateFilename);
         await File.WriteAllBytesAsync(certFilePath, certBytes);
 
-        //// Obsolute: Install the certificate in the store if requested
-        //if (NugetCert.InstallInStore)
-        //{
-        //    using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
-        //    store.Open(OpenFlags.ReadWrite);
-
-        //    // Corrected the issue by directly creating an X509Certificate2 instance
-        //    var x509Certificate = new X509Certificate2(certBytes, NugetCert.CertificatePassword, X509KeyStorageFlags.PersistKeySet);
-        //    store.Add(x509Certificate);
-        //}
-
         // Install the certificate in the store if requested
         if (NugetCert.InstallInStore)
         {
@@ -67,6 +67,12 @@ public class NugetCertificate
         }
     }
 
+
+    /// <summary>
+    /// Removes a certificate from the store based on its subject name.
+    /// </summary>
+    /// <param name="certSubject"></param>
+    /// <returns></returns>
     public static async Task RemoveCertificateFromStoreAsync(string certSubject)
     {
         using var store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
