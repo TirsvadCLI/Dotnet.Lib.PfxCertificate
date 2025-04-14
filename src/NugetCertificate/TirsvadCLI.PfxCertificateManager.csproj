@@ -19,9 +19,6 @@
     <IncludeSymbols>True</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="NugetCertificate.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\image\logo\64x64\logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
@@ -34,6 +31,5 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="NugetCertificate.cs" />
   </ItemGroup>
 </Project>

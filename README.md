@@ -31,27 +31,50 @@ Pfx Certificate Manager is a .NET tool designed to simplify the creation, manage
 
 ## Requirements
 - .NET 9 or later
-- Windows operating system (for certificate store operations)
 
 ## Usage
-1. **Install the Tool**  
-   Clone the repository and build the project targeting `.NET 9`.  
-   Example:
-    ```powershell
-    dotnet build
-    ```
-2. **Generate a Certificate**  
-   Use the `CreateCertificateAsync` method to generate and optionally install a certificate:
+1. **Create a Self-Signed Certificate**  
+   Use the `CreateCertificateAsync` method to generate a self-signed certificate and save it as a `.pfx` file:
     ```csharp
-    var certificateInfo = new CertificateInfo( "path/to/certificates", "myCert.pfx", "MyPassword123!", "MySubject", "MyOrganization", "MyOrgUnit", "MyLocality", "MyState", "US", 1, installInStore: true);
-    var nugetCertificate = new NugetCertificate(certificateInfo); await nugetCertificate.CreateCertificateAsync();
+    await CertificateManager.CreateCertificateAsync( 
+        commonName: "MySubject",          // Common Name (CN) 
+        organization: "MyOrganization",   // Organization (O)
+        organizationUnit: "MyOrgUnit",    // Organizational Unit (OU) 
+        country: "US",                    // Country (C)
+        state: "MyState",                 // State (S)
+        locality: "MyLocality",           // Locality (L)
+        password: "MyPassword123!"        // Password for the .pfx file );
     ```
-3. **Remove a Certificate**  
-    Use the `RemoveCertificateFromStoreAsync` method to remove a certificate by subject:
+2. **Add a Certificate to the Store**  
+   Use the `AddCertificateAsync` method to add a `.pfx` certificate to a specific certificate store:
     ```csharp
-    await NugetCertificate.RemoveCertificateFromStoreAsync("MySubject");
+    await CertificateManager.AddCertificateAsync( 
+        pfxPath: "MySubject.pfx",        // Path to the .pfx file 
+        password: "MyPassword123!",      // Password for the .pfx file 
+        storeName: StoreName.My,         // Certificate store name (e.g., My, Root) 
+        storeLocation: StoreLocation.CurrentUser // Store location (e.g., CurrentUser, LocalMachine) );
     ```
+3. **Remove a Certificate from the Store**  
+   Use the `RemoveCertificateAsync` method to remove a certificate from a specific store by its thumbprint:
+   ```csharp
+    await CertificateManager.RemoveCertificateAsync( 
+         thumbprint: "THUMBPRINT",        // Thumbprint of the certificate 
+         storeName: StoreName.My,        // Certificate store name (e.g., My, Root) 
+         storeLocation: StoreLocation.CurrentUser // Store location (e.g., CurrentUser, LocalMachine) );
+    ```
+4. **Display Certificate Details**  
+   The `DisplayCertificateDetails` method is used internally to print certificate details to the console. You can use it to inspect certificates:
+   ```csharp
+   var cert = new X509Certificate2("MySubject.pfx", "MyPassword123!"); CertificateManager.DisplayCertificateDetails(cert);
+   ```
+   
+### Notes:
+- The `CreateCertificateAsync` method generates a self-signed certificate valid for 5 years by default.
+- The `AddCertificateAsync` and `RemoveCertificateAsync` methods are only supported on Windows for managing the certificate store.
+- Ensure you have the necessary permissions to access the certificate store when using `AddCertificateAsync` or `RemoveCertificateAsync`.
 
+These examples demonstrate how to use the core features of the `CertificateManager` class. For more advanced usage, refer to the source code or extend the functionality as needed.
+   
 ## Contributing
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
