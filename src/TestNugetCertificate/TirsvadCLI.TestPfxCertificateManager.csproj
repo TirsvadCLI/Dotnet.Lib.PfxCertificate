@@ -16,6 +16,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestNugetCertificate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="TestNugetCertificate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="17.12.6" />
     <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="1.4.3" />
@@ -23,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NugetCertificate\TirsvadCLI.NugetCertificate.csproj" />
+    <ProjectReference Include="..\NugetCertificate\TirsvadCLI.PfxCertificateManager.csproj" />
   </ItemGroup>
 
   <ItemGroup>

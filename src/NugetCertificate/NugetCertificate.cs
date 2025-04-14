@@ -36,7 +36,11 @@ public class NugetCertificate
             DateTimeOffset.Now,
             DateTimeOffset.Now.AddYears(NugetCert.CertValidityYears));
 
-        certificate.FriendlyName = NugetCert.CertSubject;
+        // Set FriendlyName only on Windows
+        if (OperatingSystem.IsWindows())
+        {
+            certificate.FriendlyName = NugetCert.CertSubject;
+        }
 
         // Ensure the directory exists
         var certDirectory = Path.Combine(NugetCert.CertificatePath);

@@ -6,13 +6,14 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-# ![Logo][Logo] Nuget certificate helper
+# ![Logo][Logo] Pfx Certificate Manager
 
 ## Overview
-Nuget certificate is a .NET tool designed to simplify the creation, management, and installation of self-signed certificates for use in development environments. It provides an easy-to-use API for generating certificates and managing their lifecycle.
+Pfx Certificate Manager is a .NET tool designed to simplify the creation, management, and installation of self-signed certificates for use in development environments. It provides an easy-to-use API for generating certificates and managing their lifecycle.
 
 ## Table of Contents
 - [Overview](#overview)
+- [Requirements](#requirements)
 - [Features](#features)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -28,6 +29,9 @@ Nuget certificate is a .NET tool designed to simplify the creation, management, 
 - Remove certificates from the store by subject name.
 - Fully asynchronous API for modern .NET applications.
 
+## Requirements
+- .NET 9 or later
+- Windows operating system (for certificate store operations)
 
 ## Usage
 1. **Install the Tool**  
@@ -62,7 +66,7 @@ Contributions are what make the open-source community such an amazing place to l
 If you encounter a bug or have an issue to report, please follow these steps:  
 
 1. **Go to the Issues Page**  
-  Navigate to the [GitHub Issues page](https://github.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/issues).  
+  Navigate to the [GitHub Issues page](https://github.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/issues).  
 
 2. **Click "New Issue"**  
   Click the green **"New Issue"** button to create a new issue.  
@@ -89,19 +93,19 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 
 ## Acknowledgments
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/Dotnet.Tool.NugetCertificate?style=for-the-badge
-[contributors-url]: https://github.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TirsvadCLI/Dotnet.Tool.NugetCertificate?style=for-the-badge
-[forks-url]: https://github.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/network/members
-[stars-shield]: https://img.shields.io/github/stars/TirsvadCLI/Dotnet.Tool.NugetCertificate?style=for-the-badge
-[stars-url]: https://github.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TirsvadCLI/Dotnet.Tool.NugetCertificate?style=for-the-badge
-[issues-url]: https://github.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/issues
-[license-shield]: https://img.shields.io/github/license/TirsvadCLI/Dotnet.Tool.NugetCertificate?style=for-the-badge
-[license-url]: https://github.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager?style=for-the-badge
+[contributors-url]: https://github.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager?style=for-the-badge
+[forks-url]: https://github.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/network/members
+[stars-shield]: https://img.shields.io/github/stars/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager?style=for-the-badge
+[stars-url]: https://github.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager?style=for-the-badge
+[issues-url]: https://github.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/issues
+[license-shield]: https://img.shields.io/github/license/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager?style=for-the-badge
+[license-url]: https://github.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jens-tirsvad-nielsen-13b795b9/
-[nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.NugetCertificate?style=for-the-badge
-[nuget-url]: https://www.nuget.org/packages/TirsvadCLI.NugetCertificate/
+[nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.PfxCertificateManager?style=for-the-badge
+[nuget-url]: https://www.nuget.org/packages/TirsvadCLI.PfxCertificateManager/
 
-[Logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Tool.NugetCertificate/master/image/logo/32x32/logo.png
+[Logo]: https://raw.githubusercontent.com/TirsvadCLI/TirsvadCLI.Lib.PfxCertificateManager/master/image/logo/32x32/logo.png
