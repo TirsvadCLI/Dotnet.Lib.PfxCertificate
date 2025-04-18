@@ -1,4 +1,4 @@
-﻿[![NuGet Downloads][nuget-shield]][nuget-url][![Contributors][contributors-shield]][contributors-url][![Forks][forks-shield]][forks-url][![Stargazers][stars-shield]][stars-url][![Issues][issues-shield]][issues-url][![License][license-shield]][license-url][![LinkedIn][linkedin-shield]][linkedin-url]
+[![NuGet Downloads][nuget-shield]][nuget-url][![Contributors][contributors-shield]][contributors-url][![Forks][forks-shield]][forks-url][![Stargazers][stars-shield]][stars-url][![Issues][issues-shield]][issues-url][![License][license-shield]][license-url][![LinkedIn][linkedin-shield]][linkedin-url]
 
 # ![Logo][Logo] Pfx Certificate Library
 
@@ -9,6 +9,13 @@ Pfx Certificate Library is a .NET tool designed to simplify the creation, manage
 - [Overview](#overview)
 - [Requirements](#requirements)
 - [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+    - [Install via NuGet Package Manager Console](#install-via-nuget-package-manager-console)
+    - [Install via Visual Studio NuGet Package Manager](#install-via-visual-studio-nuget-package-manager)
+    - [Install via .NET CLI](#install-via-dotnet-cli)
+    - [Clone the repo](#clone-the-repo)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Bug / Issue Reporting](#bug--issue-reporting)
