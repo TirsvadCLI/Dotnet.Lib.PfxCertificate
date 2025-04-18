@@ -1,15 +1,9 @@
-﻿﻿[![NuGet Downloads][nuget-shield]][nuget-url]
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+﻿[![NuGet Downloads][nuget-shield]][nuget-url][![Contributors][contributors-shield]][contributors-url][![Forks][forks-shield]][forks-url][![Stargazers][stars-shield]][stars-url][![Issues][issues-shield]][issues-url][![License][license-shield]][license-url][![LinkedIn][linkedin-shield]][linkedin-url]
 
-# ![Logo][Logo] Pfx Certificate Manager
+# ![Logo][Logo] Pfx Certificate Library
 
 ## Overview
-Pfx Certificate Manager is a .NET tool designed to simplify the creation, management, and installation of self-signed certificates for use in development environments. It provides an easy-to-use API for generating certificates and managing their lifecycle.
+Pfx Certificate Library is a .NET tool designed to simplify the creation, management, and installation of self-signed certificates for use in development environments. It provides an easy-to-use API for generating certificates and managing their lifecycle.
 
 ## Table of Contents
 - [Overview](#overview)
@@ -29,8 +23,41 @@ Pfx Certificate Manager is a .NET tool designed to simplify the creation, manage
 - Remove certificates from the store by subject name.
 - Fully asynchronous API for modern .NET applications.
 
-## Requirements
-- .NET 9 or later
+## Getting Started
+To get started with the Form library, you will need to install the library in your .NET project. You can do this using NuGet Package Manager or by adding the package reference directly to your project file.
+
+### Prerequisites
+- .NET 9.0 or later
+
+## Installation
+To use the library, you will need to download and then add a reference to the library in your project. Follow the instructions below to install the library and get started.
+
+#### Install via NuGet Package Manager Console
+You can install the library using the NuGet Package Manager Console. Open the console and run the following command:
+```bash
+Install-Package TirsvadCLI.PfxCertificateManager
+```
+
+#### Install via Visual Studio NuGet Package Manager
+1. Open your project in Visual Studio.
+2. Right-click on your project in the Solution Explorer and select "Manage NuGet Packages".
+3. Search for "TirsvadCLI.PfxCertificateManager" in the NuGet Package Manager.
+4. Click "Install" to add the library to your project. 
+
+#### Install via .NET CLI
+You can also install the library using the .NET CLI. Open a terminal and run the following command:
+```bash
+dotnet add package TirsvadCLI.PfxCertificateManager
+```
+
+#### Clone the repo
+![Repo size][repos-size-shield]
+
+If you want to clone the repository and build the library from source, you can do so using Git. Make sure you have Git installed on your machine. Then, run the following command in your terminal:
+
+```bash
+git clone git@github.com:TirsvadCLI/Dotnet.Lib.PfxCertificateManager.git
+```
 
 ## Usage
 1. **Create a Self-Signed Certificate**  
@@ -116,7 +143,6 @@ Distributed under the GPL-3.0 [License][license-url].
 Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 
 ## Acknowledgments
-
 - [dotnet](https://dotnet.microsoft.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -132,6 +158,8 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [license-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jens-tirsvad-nielsen-13b795b9/
+[repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badg
+
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.PfxCertificateManager?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/TirsvadCLI.PfxCertificateManager/
 
