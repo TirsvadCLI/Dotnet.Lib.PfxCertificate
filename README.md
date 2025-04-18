@@ -3,7 +3,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 # ![Logo][Logo] Pfx Certificate Manager
@@ -65,7 +65,8 @@ Pfx Certificate Manager is a .NET tool designed to simplify the creation, manage
 4. **Display Certificate Details**  
    The `DisplayCertificateDetails` method is used internally to print certificate details to the console. You can use it to inspect certificates:
    ```csharp
-   var cert = new X509Certificate2("MySubject.pfx", "MyPassword123!"); CertificateManager.DisplayCertificateDetails(cert);
+   var cert = new X509Certificate2("MySubject.pfx", "MyPassword123!");
+   CertificateManager.DisplayCertificateDetails(cert);
    ```
    
 ### Notes:
@@ -115,6 +116,9 @@ Distributed under the GPL-3.0 [License][license-url].
 Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 
 ## Acknowledgments
+
+- [dotnet](https://dotnet.microsoft.com/)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badge
 [contributors-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/graphs/contributors
