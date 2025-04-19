@@ -63,7 +63,7 @@ dotnet add package TirsvadCLI.PfxCertificateManager
 If you want to clone the repository and build the library from source, you can do so using Git. Make sure you have Git installed on your machine. Then, run the following command in your terminal:
 
 ```bash
-git clone git@github.com:TirsvadCLI/Dotnet.Lib.PfxCertificateManager.git
+git clone git@github.com:TirsvadCLI/Dotnet.Lib.PfxCertificate.git
 ```
 
 ## Usage
@@ -153,22 +153,22 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 - [dotnet](https://dotnet.microsoft.com/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badge
-[contributors-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badge
-[forks-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/network/members
-[stars-shield]: https://img.shields.io/github/stars/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badge
-[stars-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/stargazers
-[issues-shield]: https://img.shields.io/github/issues/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badge
-[issues-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/issues
-[license-shield]: https://img.shields.io/github/license/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badge
-[license-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/TirsvadCLI/Dotnet.Lib.PfxCertificate?style=for-the-badge
+[contributors-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/TirsvadCLI/Dotnet.Lib.PfxCertificate?style=for-the-badge
+[forks-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/network/members
+[stars-shield]: https://img.shields.io/github/stars/TirsvadCLI/Dotnet.Lib.PfxCertificate?style=for-the-badge
+[stars-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/stargazers
+[issues-shield]: https://img.shields.io/github/issues/TirsvadCLI/Dotnet.Lib.PfxCertificate?style=for-the-badge
+[issues-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/issues
+[license-shield]: https://img.shields.io/github/license/TirsvadCLI/Dotnet.Lib.PfxCertificate?style=for-the-badge
+[license-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jens-tirsvad-nielsen-13b795b9/
-[githubIssue-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/issues/
-[repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badg
+[githubIssue-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/issues/
+[repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadCLI/Dotnet.Lib.PfxCertificate?style=for-the-badg
 
-[nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.PfxCertificateManager?style=for-the-badge
-[nuget-url]: https://www.nuget.org/packages/TirsvadCLI.PfxCertificateManager/
+[nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.PfxCertificate?style=for-the-badge
+[nuget-url]: https://www.nuget.org/packages/TirsvadCLI.PfxCertificate/
 
-[logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/master/image/logo/32x32/logo.png
+[logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Lib.PfxCertificate/master/image/logo/32x32/logo.png
