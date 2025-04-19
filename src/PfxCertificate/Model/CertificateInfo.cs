@@ -1,6 +1,6 @@
-﻿namespace TirsvadCLI.PfxCertificate.Model;
+namespace TirsvadCLI.PfxCertificate.Model;
 
-public class CertificateInfo
+public class CertificateInfo : ICertificateInfo
 {
     public string CertificatePath { get; private set; }
     public string CertificateFilename { get; private set; }

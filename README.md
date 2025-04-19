@@ -1,6 +1,6 @@
 [![NuGet Downloads][nuget-shield]][nuget-url][![Contributors][contributors-shield]][contributors-url][![Forks][forks-shield]][forks-url][![Stargazers][stars-shield]][stars-url][![Issues][issues-shield]][issues-url][![License][license-shield]][license-url][![LinkedIn][linkedin-shield]][linkedin-url]
 
-# ![Logo][Logo] Pfx Certificate Library
+# ![Logo][logo] Pfx Certificate Library
 
 ## Overview
 Pfx Certificate Library is a .NET tool designed to simplify the creation, management, and installation of self-signed certificates for use in development environments. It provides an easy-to-use API for generating certificates and managing their lifecycle.
@@ -124,7 +124,7 @@ Contributions are what make the open-source community such an amazing place to l
 If you encounter a bug or have an issue to report, please follow these steps:  
 
 1. **Go to the Issues Page**  
-  Navigate to the [GitHub Issues page](https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/issues).  
+  Navigate to the [GitHub Issues page][githubIssue-url].  
 
 2. **Click "New Issue"**  
   Click the green **"New Issue"** button to create a new issue.  
@@ -165,9 +165,10 @@ Jens Tirsvad Nielsen - [LinkedIn][linkedin-url]
 [license-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jens-tirsvad-nielsen-13b795b9/
+[githubIssue-url]: https://github.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/issues/
 [repos-size-shield]: https://img.shields.io/github/repo-size/TirsvadCLI/Dotnet.Lib.PfxCertificateManager?style=for-the-badg
 
 [nuget-shield]: https://img.shields.io/nuget/dt/TirsvadCLI.PfxCertificateManager?style=for-the-badge
 [nuget-url]: https://www.nuget.org/packages/TirsvadCLI.PfxCertificateManager/
 
-[Logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/master/image/logo/32x32/logo.png
+[logo]: https://raw.githubusercontent.com/TirsvadCLI/Dotnet.Lib.PfxCertificateManager/master/image/logo/32x32/logo.png

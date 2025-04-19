@@ -1,11 +1,17 @@
-﻿namespace TirsvadCLI.PfxCertificate;
+namespace TirsvadCLI.PfxCertificate;
 
+using System.Globalization;
+using System.Resources;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
 public static class PfxCertificate
 {
-    public static async Task<X509Certificate2> CreateCertificateAsync(string commonName, string organization, string organizationUnit, string country, string state, string locality, string password)
+    private static readonly ResourceManager _resourceManager = new ResourceManager("TirsvadCLI.PfxCertificate.Properties.Resources", typeof(PfxCertificate).Assembly);
+    public static CultureInfo? Culture { get; private set; } = null;
+
+
+    public static async Task<X509Certificate2>? CreateCertificateAsync(string commonName, string organization, string organizationUnit, string country, string state, string locality, string password)
     {
         try
         {
@@ -26,15 +32,15 @@ public static class PfxCertificate
             byte[] pfxBytes = cert.Export(X509ContentType.Pfx, password);
             await File.WriteAllBytesAsync($"{commonName}.pfx", pfxBytes);
 
-            Console.WriteLine("Certificate created successfully.");
+            Console.WriteLine($"{GetMsg("Certificate created successfully")}.");
             DisplayCertificateDetails(cert);
 
             return cert;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error creating certificate: {ex.Message}");
-            return null;
+            Console.WriteLine($"{GetMsg("Error creating certificate")}: {ex.Message}");
+            return null; // Return a default instance instead of null;
         }
     }
 
@@ -42,7 +48,7 @@ public static class PfxCertificate
     {
         if (!File.Exists(pfxPath))
         {
-            Console.WriteLine("PFX file not found.");
+            Console.WriteLine($"{GetMsg("PFX file not found")}.");
             return;
         }
 
@@ -51,7 +57,7 @@ public static class PfxCertificate
             X509Certificate2 certificate = new X509Certificate2(pfxPath, password, X509KeyStorageFlags.PersistKeySet);
             DisplayCertificateDetails(certificate);
 
-            Console.WriteLine("Certificate loaded successfully.");
+            Console.WriteLine($"{GetMsg("Certificate loaded successfully")}.");
 
             if (OperatingSystem.IsWindows())
             {
@@ -61,13 +67,13 @@ public static class PfxCertificate
                     store.Open(OpenFlags.ReadWrite);
                     store.Add(certificate);
                     store.Close();
-                    Console.WriteLine($"Certificate added to {storeName} store in {storeLocation}.");
+                    Console.WriteLine($"{GetMsg("Certificate added to")} {storeName} {GetMsg("store in")} {storeLocation}.");
                 });
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error adding certificate: {ex.Message}");
+            Console.WriteLine($"{GetMsg("Error adding certificate")}: {ex.Message}");
         }
     }
 
@@ -88,7 +94,7 @@ public static class PfxCertificate
                     {
                         DisplayCertificateDetails(cert);
                         store.Remove(cert);
-                        Console.WriteLine($"Removed certificate with thumbprint: {thumbprint}");
+                        Console.WriteLine($"{GetMsg("Removed certificate with thumbprint")}: {thumbprint}");
                     }
 
                     store.Close();
@@ -96,36 +102,46 @@ public static class PfxCertificate
             }
             else
             {
-                Console.WriteLine("Certificate removal is only supported on Windows.");
+                Console.WriteLine($"{GetMsg("Certificate removal is only supported on Windows")}.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error removing certificate: {ex.Message}");
+            Console.WriteLine($"{GetMsg("Error removing certificate")}: {ex.Message}");
         }
     }
 
     private static void DisplayCertificateDetails(X509Certificate2 cert)
     {
-        Console.WriteLine("\nCertificate Details:");
-        Console.WriteLine($"  Subject: {cert.Subject}");
-        Console.WriteLine($"  Issuer: {cert.Issuer}");
-        Console.WriteLine($"  Thumbprint: {cert.Thumbprint}");
-        Console.WriteLine($"  Serial Number: {cert.SerialNumber}");
-        Console.WriteLine($"  Valid From: {cert.NotBefore}");
-        Console.WriteLine($"  Valid To: {cert.NotAfter}");
-        Console.WriteLine($"  Public Key Algorithm: {cert.PublicKey.Oid.FriendlyName}");
+        Console.WriteLine($"\n{GetMsg("Certificate Details")}:");
+        Console.WriteLine($"    {GetMsg("Subject")}: {cert.Subject}");
+        Console.WriteLine($"    {GetMsg("Issuer")}: {cert.Issuer}");
+        Console.WriteLine($"    {GetMsg("Thumbprint")}: {cert.Thumbprint}");
+        Console.WriteLine($"    {GetMsg("Serial Number")}: {cert.SerialNumber}");
+        Console.WriteLine($"    {GetMsg("Valid From")}: {cert.NotBefore}");
+        Console.WriteLine($"    {GetMsg("Valid To")}: {cert.NotAfter}");
+        Console.WriteLine($"    {GetMsg("Public Key Algorithm")}: {cert.PublicKey.Oid.FriendlyName}");
 
         // Extracting organization-related details from the subject
         var subjectParts = cert.Subject.Split(", ");
         foreach (var part in subjectParts)
         {
-            if (part.StartsWith("O=")) Console.WriteLine($"  Organization: {part.Substring(2)}");
-            if (part.StartsWith("OU=")) Console.WriteLine($"  Organization Unit: {part.Substring(3)}");
-            if (part.StartsWith("CN=")) Console.WriteLine($"  Common Name: {part.Substring(3)}");
-            if (part.StartsWith("C=")) Console.WriteLine($"  Country: {part.Substring(2)}");
-            if (part.StartsWith("ST=")) Console.WriteLine($"  State: {part.Substring(3)}");
-            if (part.StartsWith("L=")) Console.WriteLine($"  Locality: {part.Substring(2)}");
+            if (part.StartsWith("O=")) Console.WriteLine($"    {GetMsg("Organization")}: {part.Substring(2)}");
+            if (part.StartsWith("OU=")) Console.WriteLine($"    {GetMsg("Organization Unit")}: {part.Substring(3)}");
+            if (part.StartsWith("CN=")) Console.WriteLine($"    {GetMsg("Common Name")}: {part.Substring(3)}");
+            if (part.StartsWith("C=")) Console.WriteLine($"    {GetMsg("Country")}: {part.Substring(2)}");
+            if (part.StartsWith("ST=")) Console.WriteLine($"    {GetMsg("State")}: {part.Substring(3)}");
+            if (part.StartsWith("L=")) Console.WriteLine($"    {GetMsg("Locality")}: {part.Substring(2)}");
         }
+    }
+
+    /// <summary>
+    /// Get a string from the resource file.
+    /// </summary>
+    /// <param name="msg">Msg to be translated</param>
+    /// <returns>Translated msg</returns>
+    private static string GetMsg(string msg)
+    {
+        return _resourceManager.GetString(msg, Culture) ?? msg;
     }
 }
