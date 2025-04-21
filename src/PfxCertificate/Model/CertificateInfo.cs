@@ -144,7 +144,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate path, can't be null or empty<br/>
     /// 2 = Invalid certificate path don't exist<br/>
     /// </returns>
-    public int IsValidCertificatePath(string certificatePath)
+    public static int IsValidCertificatePath(string? certificatePath)
     {
         if (string.IsNullOrEmpty(certificatePath))
             return 1; // Invalid certificate path cannot be empty
@@ -163,11 +163,11 @@ public class CertificateInfo : ICertificateInfo
     /// 3 = Invalid certificate filename, not a pfx or p12 file<br/>
     /// 4 = Invalid certificate filename too long<br/>
     /// </returns>
-    public static int IsValidCertificateFilename(string certificateFilename)
+    public static int IsValidCertificateFilename(string? certificateFilename)
     {
-        string suffix = Path.GetExtension(certificateFilename);
         if (string.IsNullOrEmpty(certificateFilename))
             return 1; // Invalid certificate filename cannot be empty
+        string suffix = Path.GetExtension(certificateFilename);
         if (string.IsNullOrEmpty(suffix))
             return 2; // Invalid certificate filename, no extension
         if (suffix != ".pfx" && suffix != ".p12")
@@ -186,7 +186,7 @@ public class CertificateInfo : ICertificateInfo
     /// 2 = Invalid certificate password too short<br/>
     /// 3 = Invalid certificate password too long<br/>
     /// </returns>
-    public static int IsValidCertificatePassword(string certificatePassword)
+    public static int IsValidCertificatePassword(string? certificatePassword)
     {
         if (string.IsNullOrEmpty(certificatePassword))
             return 1; // Invalid certificate password cannot be empty
@@ -205,7 +205,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate subject, can't be null or empty<br/>
     /// 2 = Invalid certificate subject too long<br/>
     /// </returns>
-    public static int IsValidCertSubject(string certSubject)
+    public static int IsValidCertSubject(string? certSubject)
     {
         if (string.IsNullOrEmpty(certSubject))
             return 1; // Invalid certificate subject cannot be empty
@@ -222,7 +222,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate organization, can't be null or empty<br/>
     /// 2 = Invalid certificate organization too long<br/>
     /// </returns>
-    public static int IsValidCertOrganization(string certOrganization)
+    public static int IsValidCertOrganization(string? certOrganization)
     {
         if (string.IsNullOrEmpty(certOrganization))
             return 1; // Invalid certificate organization cannot be empty
@@ -239,7 +239,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate organization unit, can't be null or empty<br/>
     /// 2 = Invalid certificate organization unit too long<br/>
     /// </returns>
-    public static int IsValidCertOrganizationUnit(string certOrganizationUnit)
+    public static int IsValidCertOrganizationUnit(string? certOrganizationUnit)
     {
         if (string.IsNullOrEmpty(certOrganizationUnit))
             return 1; // Invalid certificate organization unit cannot be empty
@@ -256,7 +256,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate locality, can't be null or empty<br/>
     /// 2 = Invalid certificate locality too long<br/>
     /// </returns>
-    public static int IsValidCertLocality(string certLocality)
+    public static int IsValidCertLocality(string? certLocality)
     {
         if (string.IsNullOrEmpty(certLocality))
             return 1; // Invalid certificate locality cannot be empty
@@ -273,7 +273,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate state, can't be null or empty<br/>
     /// 2 = Invalid certificate state too long<br/>
     /// </returns>
-    public static int IsValidCertState(string certState)
+    public static int IsValidCertState(string? certState)
     {
         if (string.IsNullOrEmpty(certState))
             return 1; // Invalid certificate state cannot be empty
@@ -290,7 +290,7 @@ public class CertificateInfo : ICertificateInfo
     /// 1 = Invalid certificate country, can't be null or empty<br/>
     /// 2 = Invalid certificate country too long<br/>
     /// </returns>
-    public static int IsValidCertCountry(string certCountry)
+    public static int IsValidCertCountry(string? certCountry)
     {
         if (string.IsNullOrEmpty(certCountry))
             return 1; // Invalid certificate country cannot be empty
@@ -309,7 +309,7 @@ public class CertificateInfo : ICertificateInfo
     /// 3 = Invalid certificate validity years, can't be less than 1<br/>
     /// 4 = Invalid certificate validity years, too long<br/>
     /// </returns>
-    public static int IsValidCertValidityYears(string certValidityYears)
+    public static int IsValidCertValidityYears(string? certValidityYears)
     {
         if (string.IsNullOrEmpty(certValidityYears))
             return 1; // Invalid certificate validity years cannot be empty
