@@ -9,8 +9,6 @@ public static class PfxCertificate
 {
     private static readonly ResourceManager _resourceManager = new ResourceManager("TirsvadCLI.PfxCertificate.Properties.Resources", typeof(PfxCertificate).Assembly);
     public static CultureInfo? Culture { get; private set; } = null;
-
-
     public static async Task<X509Certificate2>? CreateCertificateAsync(string commonName, string organization, string organizationUnit, string country, string state, string locality, string password)
     {
         try
@@ -43,7 +41,6 @@ public static class PfxCertificate
             return null; // Return a default instance instead of null;
         }
     }
-
     public static async Task AddCertificateAsync(string pfxPath, string password, StoreName storeName, StoreLocation storeLocation)
     {
         if (!File.Exists(pfxPath))
@@ -76,7 +73,6 @@ public static class PfxCertificate
             Console.WriteLine($"{GetMsg("Error adding certificate")}: {ex.Message}");
         }
     }
-
     public static async Task RemoveCertificateAsync(string thumbprint, StoreName storeName, StoreLocation storeLocation)
     {
         try
@@ -110,7 +106,6 @@ public static class PfxCertificate
             Console.WriteLine($"{GetMsg("Error removing certificate")}: {ex.Message}");
         }
     }
-
     private static void DisplayCertificateDetails(X509Certificate2 cert)
     {
         Console.WriteLine($"\n{GetMsg("Certificate details")}:");
@@ -134,7 +129,6 @@ public static class PfxCertificate
             if (part.StartsWith("L=")) Console.WriteLine($"    {GetMsg("Locality")}: {part.Substring(2)}");
         }
     }
-
     /// <summary>
     /// Get a string from the resource file.
     /// </summary>
