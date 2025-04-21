@@ -17,19 +17,74 @@ param(
     [string]$SignToolPath = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\signtool.exe"
 )
 
+# set variables
+$IncrementBuildUrl = "https://github.com/TirsvadCLI/PS.IncreaseBuildNumberVSProject/releases/download/1.0.0/IncrementBuild.zip"
+$IncrementBuildDestinationPath = "$PSScriptRoot/IncrementBuild.zip"
+$IncrementBuildUnzipPath = "$PSScriptRoot/IncrementBuild"
+$IncrementBuildScriptPath = "$IncrementBuildUnzipPath/IncrementBuild.ps1"
+
 function ExitWaitForKey {
     param(
         [string]$ErrorMessage = ""
     )
 
     if ($ErrorMessage) {
-        Write-Error $ErrorMessage
+        Write-Host "ERROR: $ErrorMessage" -ForegroundColor Red
     }
 
     Write-Host "Press any key to continue..."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 
     exit 1
+}
+
+function DownloadAndProcessZip {
+    param(
+        [string]$DownloadUrl,
+        [string]$DestinationPath,
+        [string]$UnzipPath
+    )
+
+    # Download the zip file
+    Write-Output "Downloading zip file from $DownloadUrl..."
+    try {
+        Invoke-WebRequest -Uri $DownloadUrl -OutFile $DestinationPath -ErrorAction Stop
+        Write-Output "Download completed: $DestinationPath"
+    } catch {
+        ExitWaitForKey -ErrorMessage "Failed to download the zip file. Error: $_"
+    }
+
+    # Unzip the file
+    Write-Output "Unzipping the file to $UnzipPath..."
+    try {
+        Expand-Archive -Path $DestinationPath -DestinationPath $UnzipPath -Force
+        Write-Output "Unzipping completed."
+    } catch {
+        ExitWaitForKey -ErrorMessage "Failed to unzip the file. Error: $_"
+    }
+}
+
+function DeleteZipAndFolder {
+    param(
+        [string]$DestinationPath,
+        [string]$UnzipPath
+    )
+    # Delete the zip file
+    Write-Output "Deleting the zip file: $DestinationPath..."
+    try {
+        Remove-Item -Path $DestinationPath -Force
+        Write-Output "Zip file deleted."
+    } catch {
+        ExitWaitForKey -ErrorMessage "Failed to delete the zip file. Error: $_"
+    }
+    # Delete unzipped files
+    Write-Output "Deleting unzipped files in $UnzipPath..."
+    try {
+        Remove-Item -Path $UnzipPath -Recurse -Force
+        Write-Output "Unzipped files deleted."
+    } catch {
+        ExitWaitForKey -ErrorMessage "Failed to delete unzipped files. Error: $_"
+    }
 }
 
 # Ensure the script is running as an administrator.
@@ -43,17 +98,22 @@ if (-not (New-Object Security.Principal.WindowsPrincipal([Security.Principal.Win
     exit
 }
 
-# Verify the project file exists.
-if (!(Test-Path $ProjectFilePath)) {
-    ExitWaitForKey -ErrorMessage "Project file does not exist at path: $ProjectFilePath"
+# Download and process the zip file if needed
+DownloadAndProcessZip -DownloadUrl $IncrementBuildUrl -DestinationPath $IncrementBuildDestinationPath -UnzipPath $IncrementBuildUnzipPath
+# Run the IncrementBuild.ps1 script
+Write-Output "Running the IncrementBuild.ps1 script from $UnzipPath..."
+if (Test-Path $IncrementBuildScriptPath) {
+    try {
+        & $IncrementBuildScriptPath -ProjectFilePath $ProjectFilePath
+        Write-Output "IncrementBuild.ps1 executed successfully."
+    } catch {
+        ExitWaitForKey -ErrorMessage "Failed to execute IncrementBuild.ps1. Error: $_"
+    }
+} else {
+    ExitWaitForKey -ErrorMessage "IncrementBuild.ps1 not found in $UnzipPath."
 }
-
-# Load the project file as XML.
-try {
-    [xml]$projXml = Get-Content $ProjectFilePath -ErrorAction Stop
-} catch {
-    ExitWaitForKey -ErrorMessage "Failed to load the project file. Ensure the file exists and is accessible."
-}
+# Delete zip and folder if needed
+DeleteZipAndFolder -DestinationPath $IncrementBuildDestinationPath -UnzipPath $IncrementBuildUnzipPath
 
 # Build the project in Release mode.
 Write-Output "Building the project in Release mode..."
@@ -139,53 +199,5 @@ if ($IsNuGetPackage) {
     }
     Write-Output "Executable signed successfully."
 }
-
-# Find the first PropertyGroup element that contains a VersionPrefix element.
-$propertyGroup = $projXml.Project.PropertyGroup | Where-Object { $_.VersionPrefix }
-if (-not $propertyGroup) {
-    ExitWaitForKey -ErrorMessage "No <VersionPrefix> element found in the project file."
-}
-
-# Get the old version string.
-$oldVersion = $propertyGroup.VersionPrefix
-Write-Output "Current version: $oldVersion"
-
-# Validate and increment the version.
-$versionParts = $oldVersion -split "\."
-if ($versionParts.Length -ne 3 -or -not ($versionParts | ForEach-Object { $_ -match '^\d+$' })) {
-    ExitWaitForKey -ErrorMessage "Version format is not recognized. Expected format: Major.Minor.Build (e.g., 0.1.0)"
-}
-
-$major = $versionParts[0]
-$minor = $versionParts[1]
-$build = [int]$versionParts[2]
-$build++
-
-$newVersion = "$major.$minor.$build"
-$propertyGroup.VersionPrefix = $newVersion
-Write-Output "Updated version: $newVersion"
-
-# Save the updated project file.
-try {
-    $projXml.Save($ProjectFilePath)
-    Write-Output "Project file updated with new version."
-} catch {
-    ExitWaitForKey -ErrorMessage "Failed to save the updated project file."
-}
-
-# Commit and push the changes using Git.
-#try {
-#    Write-Output "Staging changes..."
-#    cd $PSScriptRoot
-#    & git add $ProjectFilePath
-
-#    Write-Output "Creating commit..."
-#    & git commit -m "Bump build number to $newVersion"
-
-#    Write-Output "Pushing to remote repository..."
-#    & git push
-#} catch {
-#    ExitWaitForKey -ErrorMessage "Failed to commit and push changes to the repository."
-#}
 
 Start-Sleep -Seconds 3000
