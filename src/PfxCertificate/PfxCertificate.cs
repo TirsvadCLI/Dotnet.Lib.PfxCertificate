@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public static class PfxCertificate
 {
-    private static readonly ResourceManager _resourceManager = new ResourceManager("TirsvadCLI.PfxCertificate.Properties.Resources", typeof(PfxCertificate).Assembly);
+    private static readonly ResourceManager _resourceManager = new ResourceManager("TirsvadCLI.PfxCertificate.Properties.Resource", typeof(PfxCertificate).Assembly);
     public static CultureInfo? Culture { get; private set; } = null;
     public static async Task<X509Certificate2>? CreateCertificateAsync(string commonName, string organization, string organizationUnit, string country, string state, string locality, string password)
     {
