@@ -118,75 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Certificate added to" xml:space="preserve">
-    <value />
+    <value>Sijil ditambah ke</value>
   </data>
   <data name="Certificate created successfully" xml:space="preserve">
-    <value>Sijil berjaya dibuat</value>
+    <value>Sijil berjaya dicipta</value>
   </data>
-  <data name="Certificate Details" xml:space="preserve">
-    <value />
+  <data name="Certificate details" xml:space="preserve">
+    <value>Butiran sijil</value>
   </data>
   <data name="Certificate loaded successfully" xml:space="preserve">
-    <value />
+    <value>Sijil berjaya dimuatkan</value>
   </data>
   <data name="Certificate removal is only supported on Windows" xml:space="preserve">
-    <value />
+    <value>Penghapusan sijil hanya disokong pada Windows</value>
   </data>
-  <data name="Common Name" xml:space="preserve">
-    <value />
+  <data name="Common name" xml:space="preserve">
+    <value>Nama biasa</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value />
+    <value>Negara</value>
   </data>
   <data name="Error adding certificate" xml:space="preserve">
-    <value />
+    <value>Ralat menambah sijil</value>
   </data>
   <data name="Error creating certificate" xml:space="preserve">
-    <value />
+    <value>Ralat mencipta sijil</value>
   </data>
   <data name="Error removing certificate" xml:space="preserve">
-    <value />
+    <value>Ralat menghapus sijil</value>
   </data>
   <data name="Issuer" xml:space="preserve">
-    <value />
+    <value>Penerbit</value>
   </data>
   <data name="Locality" xml:space="preserve">
-    <value />
+    <value>Tempatan</value>
   </data>
   <data name="Organization" xml:space="preserve">
-    <value />
+    <value>Organisasi</value>
   </data>
-  <data name="Organization Unit" xml:space="preserve">
-    <value />
+  <data name="Organization unit" xml:space="preserve">
+    <value>Unit organisasi</value>
   </data>
   <data name="PFX file not found" xml:space="preserve">
-    <value />
+    <value>Fail PFX tidak dijumpai</value>
   </data>
-  <data name="Public Key Algorithm" xml:space="preserve">
-    <value />
+  <data name="Public key algorithm" xml:space="preserve">
+    <value>Algoritma kunci awam</value>
   </data>
   <data name="Removed certificate with thumbprint" xml:space="preserve">
-    <value />
+    <value>Sijil dengan cap ibu jari telah dihapuskan</value>
   </data>
-  <data name="Serial Number" xml:space="preserve">
-    <value />
+  <data name="Serial number" xml:space="preserve">
+    <value>Nombor siri</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value />
+    <value>Negeri</value>
   </data>
   <data name="store in" xml:space="preserve">
-    <value />
+    <value>simpan dalam</value>
   </data>
   <data name="Subject" xml:space="preserve">
-    <value />
+    <value>Subjek</value>
   </data>
   <data name="Thumbprint" xml:space="preserve">
-    <value />
+    <value>Cap ibu jari</value>
   </data>
-  <data name="Valid From" xml:space="preserve">
-    <value />
+  <data name="Valid from" xml:space="preserve">
+    <value>Sah dari</value>
   </data>
-  <data name="Valid To" xml:space="preserve">
-    <value />
+  <data name="Valid to" xml:space="preserve">
+    <value>Sah hingga</value>
   </data>
 </root>

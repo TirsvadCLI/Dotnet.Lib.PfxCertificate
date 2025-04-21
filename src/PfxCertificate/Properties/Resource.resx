@@ -118,75 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Certificate added to" xml:space="preserve">
-    <value />
+    <value>Certificate added to</value>
   </data>
   <data name="Certificate created successfully" xml:space="preserve">
-    <value>Certifikatet blev oprettet</value>
+    <value>Certificate created successfully</value>
   </data>
-  <data name="Certificate Details" xml:space="preserve">
-    <value />
+  <data name="Certificate details" xml:space="preserve">
+    <value>Certificate Details</value>
   </data>
   <data name="Certificate loaded successfully" xml:space="preserve">
-    <value />
+    <value>Certificate loaded successfully</value>
   </data>
   <data name="Certificate removal is only supported on Windows" xml:space="preserve">
-    <value />
+    <value>Certificate removal is only supported on Windows</value>
   </data>
-  <data name="Common Name" xml:space="preserve">
-    <value />
+  <data name="Common name" xml:space="preserve">
+    <value>Common name</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value />
+    <value>Country</value>
   </data>
   <data name="Error adding certificate" xml:space="preserve">
-    <value />
+    <value>Error adding certificate</value>
   </data>
   <data name="Error creating certificate" xml:space="preserve">
-    <value />
+    <value>Error creating certificate</value>
   </data>
   <data name="Error removing certificate" xml:space="preserve">
-    <value />
+    <value>Error removing certificate</value>
   </data>
   <data name="Issuer" xml:space="preserve">
-    <value />
+    <value>Issuer</value>
   </data>
   <data name="Locality" xml:space="preserve">
-    <value />
+    <value>Locality</value>
   </data>
   <data name="Organization" xml:space="preserve">
-    <value />
+    <value>Organization</value>
   </data>
-  <data name="Organization Unit" xml:space="preserve">
-    <value />
+  <data name="Organization unit" xml:space="preserve">
+    <value>Organization unit</value>
   </data>
   <data name="PFX file not found" xml:space="preserve">
-    <value />
+    <value>PFX file not found</value>
   </data>
-  <data name="Public Key Algorithm" xml:space="preserve">
-    <value />
+  <data name="Public key algorithm" xml:space="preserve">
+    <value>Public key algorithm</value>
   </data>
   <data name="Removed certificate with thumbprint" xml:space="preserve">
-    <value />
+    <value>Removed certificate with thumbprint</value>
   </data>
-  <data name="Serial Number" xml:space="preserve">
-    <value />
+  <data name="Serial number" xml:space="preserve">
+    <value>Serial Number</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value />
+    <value>State</value>
   </data>
   <data name="store in" xml:space="preserve">
-    <value />
+    <value>store in</value>
   </data>
   <data name="Subject" xml:space="preserve">
-    <value />
+    <value>Subject</value>
   </data>
   <data name="Thumbprint" xml:space="preserve">
-    <value />
+    <value>Thumbprint</value>
   </data>
-  <data name="Valid From" xml:space="preserve">
-    <value />
+  <data name="Valid from" xml:space="preserve">
+    <value>Valid from</value>
   </data>
-  <data name="Valid To" xml:space="preserve">
-    <value />
+  <data name="Valid to" xml:space="preserve">
+    <value>Valid to</value>
   </data>
 </root>

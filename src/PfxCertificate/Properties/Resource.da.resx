@@ -118,75 +118,75 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Certificate added to" xml:space="preserve">
-    <value>Certificate added to</value>
+    <value>Certifikat tilføjet til</value>
   </data>
   <data name="Certificate created successfully" xml:space="preserve">
-    <value>Certificate created successfully</value>
+    <value>Certifikat oprettet med succes</value>
   </data>
-  <data name="Certificate Details" xml:space="preserve">
-    <value>Certificate Details</value>
+  <data name="Certificate details" xml:space="preserve">
+    <value>Certifikatdetaljer</value>
   </data>
   <data name="Certificate loaded successfully" xml:space="preserve">
-    <value>Certificate loaded successfully</value>
+    <value>Certifikat indlæst med succes</value>
   </data>
   <data name="Certificate removal is only supported on Windows" xml:space="preserve">
-    <value>Certificate removal is only supported on Windows</value>
+    <value>Fjernelse af certifikat understøttes kun på Windows</value>
   </data>
-  <data name="Common Name" xml:space="preserve">
-    <value>Common Name</value>
+  <data name="Common name" xml:space="preserve">
+    <value>Fælles navn</value>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>Country</value>
+    <value>Land</value>
   </data>
   <data name="Error adding certificate" xml:space="preserve">
-    <value>Error adding certificate</value>
+    <value>Fejl ved tilføjelse af certifikat</value>
   </data>
   <data name="Error creating certificate" xml:space="preserve">
-    <value>Error creating certificate</value>
+    <value>Fejl ved oprettelse af certifika</value>
   </data>
   <data name="Error removing certificate" xml:space="preserve">
-    <value>Error removing certificate</value>
+    <value>Fejl ved fjernelse af certifikat</value>
   </data>
   <data name="Issuer" xml:space="preserve">
-    <value>Issuer</value>
+    <value>Udsteder</value>
   </data>
   <data name="Locality" xml:space="preserve">
-    <value>Locality</value>
+    <value>Lokalitet</value>
   </data>
   <data name="Organization" xml:space="preserve">
-    <value>Organization</value>
+    <value>Organisation</value>
   </data>
-  <data name="Organization Unit" xml:space="preserve">
-    <value>Organization Unit</value>
+  <data name="Organization unit" xml:space="preserve">
+    <value>Organisationsenhed</value>
   </data>
   <data name="PFX file not found" xml:space="preserve">
-    <value>PFX file not found</value>
+    <value>PFX-fil ikke fundet</value>
   </data>
-  <data name="Public Key Algorithm" xml:space="preserve">
-    <value>Public Key Algorithm</value>
+  <data name="Public key algorithm" xml:space="preserve">
+    <value>Offentlig nøgle-algoritme</value>
   </data>
   <data name="Removed certificate with thumbprint" xml:space="preserve">
-    <value>Removed certificate with thumbprint</value>
+    <value>Fjernet certifikat med thumbprint</value>
   </data>
-  <data name="Serial Number" xml:space="preserve">
-    <value>Serial Number</value>
+  <data name="Serial number" xml:space="preserve">
+    <value>Serienummer</value>
   </data>
   <data name="State" xml:space="preserve">
-    <value>State</value>
+    <value>Stat</value>
   </data>
   <data name="store in" xml:space="preserve">
-    <value>store in</value>
+    <value>gem i</value>
   </data>
   <data name="Subject" xml:space="preserve">
-    <value>Subject</value>
+    <value>Emne</value>
   </data>
   <data name="Thumbprint" xml:space="preserve">
     <value>Thumbprint</value>
   </data>
-  <data name="Valid From" xml:space="preserve">
-    <value>Valid From</value>
+  <data name="Valid from" xml:space="preserve">
+    <value>Gyldig fra</value>
   </data>
-  <data name="Valid To" xml:space="preserve">
-    <value>Valid To</value>
+  <data name="Valid to" xml:space="preserve">
+    <value>Gyldig til</value>
   </data>
 </root>
