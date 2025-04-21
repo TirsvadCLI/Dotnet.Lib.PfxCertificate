@@ -113,22 +113,22 @@ public static class PfxCertificate
 
     private static void DisplayCertificateDetails(X509Certificate2 cert)
     {
-        Console.WriteLine($"\n{GetMsg("Certificate Details")}:");
+        Console.WriteLine($"\n{GetMsg("Certificate details")}:");
         Console.WriteLine($"    {GetMsg("Subject")}: {cert.Subject}");
         Console.WriteLine($"    {GetMsg("Issuer")}: {cert.Issuer}");
         Console.WriteLine($"    {GetMsg("Thumbprint")}: {cert.Thumbprint}");
-        Console.WriteLine($"    {GetMsg("Serial Number")}: {cert.SerialNumber}");
-        Console.WriteLine($"    {GetMsg("Valid From")}: {cert.NotBefore}");
-        Console.WriteLine($"    {GetMsg("Valid To")}: {cert.NotAfter}");
-        Console.WriteLine($"    {GetMsg("Public Key Algorithm")}: {cert.PublicKey.Oid.FriendlyName}");
+        Console.WriteLine($"    {GetMsg("Serial number")}: {cert.SerialNumber}");
+        Console.WriteLine($"    {GetMsg("Valid from")}: {cert.NotBefore}");
+        Console.WriteLine($"    {GetMsg("Valid to")}: {cert.NotAfter}");
+        Console.WriteLine($"    {GetMsg("Public key algorithm")}: {cert.PublicKey.Oid.FriendlyName}");
 
         // Extracting organization-related details from the subject
         var subjectParts = cert.Subject.Split(", ");
         foreach (var part in subjectParts)
         {
             if (part.StartsWith("O=")) Console.WriteLine($"    {GetMsg("Organization")}: {part.Substring(2)}");
-            if (part.StartsWith("OU=")) Console.WriteLine($"    {GetMsg("Organization Unit")}: {part.Substring(3)}");
-            if (part.StartsWith("CN=")) Console.WriteLine($"    {GetMsg("Common Name")}: {part.Substring(3)}");
+            if (part.StartsWith("OU=")) Console.WriteLine($"    {GetMsg("Organization unit")}: {part.Substring(3)}");
+            if (part.StartsWith("CN=")) Console.WriteLine($"    {GetMsg("Common name")}: {part.Substring(3)}");
             if (part.StartsWith("C=")) Console.WriteLine($"    {GetMsg("Country")}: {part.Substring(2)}");
             if (part.StartsWith("ST=")) Console.WriteLine($"    {GetMsg("State")}: {part.Substring(3)}");
             if (part.StartsWith("L=")) Console.WriteLine($"    {GetMsg("Locality")}: {part.Substring(2)}");
