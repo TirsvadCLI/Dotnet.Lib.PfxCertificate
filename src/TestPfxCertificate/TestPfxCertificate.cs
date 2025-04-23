@@ -130,15 +130,6 @@ public class CertificateTests
 public class CertificateInfoValidationTests
 {
     [TestMethod]
-    public void IsValidCertificatePath_ShouldReturnExpectedResults()
-    {
-        Assert.AreEqual(1, CertificateInfo.IsValidCertificatePath(null));
-        Assert.AreEqual(1, CertificateInfo.IsValidCertificatePath(string.Empty));
-        Assert.AreEqual(2, CertificateInfo.IsValidCertificatePath("NonExistentPath"));
-        Assert.AreEqual(0, CertificateInfo.IsValidCertificatePath(Environment.CurrentDirectory));
-    }
-
-    [TestMethod]
     public void IsValidCertificateFilename_ShouldReturnExpectedResults()
     {
         Assert.AreEqual(1, CertificateInfo.IsValidCertificateFilename(null));

@@ -142,14 +142,17 @@ public class CertificateInfo : ICertificateInfo
     /// <returns>
     /// 0 = Valid certificate path<br/>
     /// 1 = Invalid certificate path, can't be null or empty<br/>
-    /// 2 = Invalid certificate path don't exist<br/>
+    /// 2 = Invalid certificate path too long<br/>
     /// </returns>
     public static int IsValidCertificatePath(string? certificatePath)
     {
         if (string.IsNullOrEmpty(certificatePath))
             return 1; // Invalid certificate path cannot be empty
-        if (!Directory.Exists(certificatePath))
-            return 2; // Invalid certificate path
+        // Windows API has a limit of 260 characters for the path
+        // including the drive letter and the null terminator
+        // https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation
+        if (OperatingSystem.IsWindows() && certificatePath.Length > 255)
+            return 2; // Invalid certificate path too long
         return 0; // Valid certificate path
     }
     /// <summary>
@@ -160,7 +163,7 @@ public class CertificateInfo : ICertificateInfo
     /// 0 = Valid certificate filename<br/>
     /// 1 = Invalid certificate filename, can't be null or empty<br/>
     /// 2 = Invalid certificate filename, no extension<br/>
-    /// 3 = Invalid certificate filename, not a pfx or p12 file<br/>
+    /// 3 = Invalid certificate filename, not a pfx or p12 file extension<br/>
     /// 4 = Invalid certificate filename too long<br/>
     /// </returns>
     public static int IsValidCertificateFilename(string? certificateFilename)
@@ -172,7 +175,9 @@ public class CertificateInfo : ICertificateInfo
             return 2; // Invalid certificate filename, no extension
         if (suffix != ".pfx" && suffix != ".p12")
             return 3; // Invalid certificate filename, not a pfx or p12 file
-        if (certificateFilename.Length > 255)
+        // Windows API has a limit of 260 characters for the path
+        // including the drive letter and the null terminator
+        if (OperatingSystem.IsWindows() && certificateFilename.Length > 255)
             return 4; // Invalid certificate filename too long
         return 0; // Valid certificate filename
     }
